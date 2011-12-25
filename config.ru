@@ -1,14 +1,5 @@
-# encoding: utf-8
+frontend_root = File.expand_path('frontend', File.dirname(__FILE__))
 
-page = <<HTML.split("\n")
-<html>
-  <head>
-    <title>Электронная РНС</title>
-  </head>
-  <body>
-    <h1>Электронная РНС</h1>
-  </body>
-</html>
-HTML
+run Rack::File.new(File.join(frontend_root, 'app.html'))
 
-run ->(env) { [200, {'Content-type' => 'text/html'}, page] }
+
