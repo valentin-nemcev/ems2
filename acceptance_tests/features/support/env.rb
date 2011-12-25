@@ -1,15 +1,5 @@
-# encoding: utf-8
 require 'capybara/cucumber'
+require 'rack'
 
-page = <<HTML
-<html>
-  <head>
-    <title>Электронная РНС</title>
-  </head>
-  <body>
-    <h1>Электронная РНС</h1>
-  </body>
-</html>
-HTML
-
-Capybara.app = ->(env) { [200, {'Content-type' => 'text/html'}, page] }
+app, opts = *Rack::Builder.parse_file('../config.ru')
+Capybara.app = app
