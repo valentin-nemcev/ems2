@@ -10,6 +10,8 @@ gem 'tilt'                , '~> 1.3.3'
 gem 'haml'                , '~> 3.1.4'
 gem 'compass'             , '~> 0.11.6'
 gem 'compass-susy-plugin' , '~> 0.9'
+gem 'coffee-script'       , '~> 2.2.0'
+gem 'therubyracer'        , '~> 0.9.9'
 
 # Web-server
 gem 'shotgun', '~> 0.9'

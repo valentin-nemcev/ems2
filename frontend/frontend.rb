@@ -35,6 +35,7 @@ module EMS
              end
 
       content_type = Rack::Mime.mime_type(req_path.extname, 'text/plain')
+      content_type += '; charset=utf-8' if content_type =~ /^text/
       [200, {'Content-Type' => content_type}, resp.each_line]
     end
   end
