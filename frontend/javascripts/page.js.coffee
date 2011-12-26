@@ -1,3 +1,4 @@
 $(document).ready ->
-  $(".grid_switch :checkbox").change ->
-    $('.container').toggleClass('grid-bg', ($(this).is(':checked')))
+  $(".grid-switch :checkbox").change ->
+    $('.container.root').toggleClass('grid-bg', ($(this).is(':checked')))
+  .change()

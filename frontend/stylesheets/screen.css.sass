@@ -1,6 +1,7 @@
 // Imports -------------------------------------------------------------------
 
 @import compass/reset
+@import compass/layout/sticky-footer
 @import base
 
 /* Layout ------------------------------------------------------------------
@@ -14,6 +15,22 @@ body
   font-family: 'Arial', sans-serif
   font-size: 100%
 
++sticky-footer(50px, 'body > .root', 'body > .root > section', 'body > footer')
+
+header
+  +full
+
+footer
+  +full
+
 h1
-  margin: 0.5em 0
+  padding: 0.5em 0
   font-size: 1.5em
+
+
+.grid-switch
+  +full
+  +prefix($total-cols - 1)
+  font-size: 80%
+  input
+    vertical-align: middle
