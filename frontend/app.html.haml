@@ -8,8 +8,15 @@
           type  = 'text/css')
 
     %script(type='text/javascript'
+            src ='/javascripts/vendor/jquery-1.7.1.js')
+    %script(type='text/javascript'
             src ='/javascripts/page.js')
     %title Электронная РНС
   %body
-    .container
+    %header.container
       %h1 Электронная РНС
+    %section.container
+    %footer.container
+      %label.grid_switch
+        Сетка
+        %input(type="checkbox" name="grid_switch")
