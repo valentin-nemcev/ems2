@@ -14,7 +14,6 @@ gem 'compass-susy-plugin' , '~> 0.9'
 gem 'shotgun', '~> 0.9'
 
 # Debugging
-
 gem 'pry'
 gem 'awesome_print'
 
