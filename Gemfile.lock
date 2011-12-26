@@ -43,6 +43,7 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       multi_json (~> 1.0.3)
+    haml (3.1.4)
     json (1.6.4)
     method_source (0.6.7)
       ruby_parser (>= 2.3.1)
@@ -95,6 +96,7 @@ DEPENDENCIES
   cucumber (~> 1.1.4)
   guard (~> 0.9.4)
   guard-livereload (~> 0.3.1)
+  haml (~> 3.1.4)
   pry
   rspec (~> 2.7.0)
   shotgun (~> 0.9)

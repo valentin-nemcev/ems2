@@ -7,6 +7,7 @@ gem 'capybara' , '~> 1.1.2'
 
 # Frontend
 gem 'tilt'                , '~> 1.3.3'
+gem 'haml'                , '~> 3.1.4'
 gem 'compass'             , '~> 0.11.6'
 gem 'compass-susy-plugin' , '~> 0.9'
 
