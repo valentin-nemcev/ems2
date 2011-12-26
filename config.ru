@@ -1,19 +1,20 @@
-frontend_root = File.expand_path('frontend', File.dirname(__FILE__))
+#\ --port 9292 --host 0.0.0.0
+# use Sass::Plugin::Rack
+require 'rubygems'
+require 'bundler'
+Bundler.setup(:default)
 
-require 'compass'
+require File.expand_path('frontend/frontend', File.dirname(__FILE__))
 
-Compass.configuration.project_path = frontend_root
-Compass.add_project_configuration
+use Rack::ShowStatus
 
-require 'sass/plugin/rack'
-use Sass::Plugin::Rack
+run EMS::Frontend.new
+# map '/' do
+  # run Rack::File.new(File.join(frontend_root, 'app.html'))
+# end
 
-map '/' do
-  run Rack::File.new(File.join(frontend_root, 'app.html'))
-end
-
-map '/stylesheets/screen.css' do
-  run Rack::File.new(File.join(frontend_root, 'stylesheets/screen.css'))
-end
+# map '/stylesheets/screen.css' do
+  # run Rack::File.new(File.join(frontend_root, 'stylesheets/screen.css'))
+# end
 
 
