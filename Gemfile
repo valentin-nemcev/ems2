@@ -17,3 +17,7 @@ gem 'shotgun', '~> 0.9'
 gem 'pry'
 gem 'awesome_print'
 
+# Development
+gem 'guard'            , '~> 0.9.4'
+gem 'guard-livereload' , '~> 0.3.1'
+
