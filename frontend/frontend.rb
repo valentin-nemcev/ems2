@@ -1,5 +1,6 @@
 require 'tilt'
 require 'pathname'
+
 module EMS
   class Frontend
     attr_accessor :frontend_root
