@@ -6,6 +6,6 @@ guard 'livereload' do
   watch(%r{frontend/(.+\.(css|js|html))$}) { |m| m[1] }
   watch(%r{frontend/[^.]+\.s[ac]ss})         { '*.css'  }
   watch(%r{frontend/(.+\.css)\.s[ac]ss})  { |m| m[1] }
-  watch(%r{frontend/(.+\.js)\.coffee})    { |m| m[1] }
+  watch(%r{frontend/(.+\.js)\.coffee})    { |m| '*'  }
   watch(%r{frontend/(.+\.html)\.haml})    { |m| m[1] }
 end
