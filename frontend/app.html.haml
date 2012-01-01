@@ -20,13 +20,14 @@
     %script(type = 'text/javascript'
             src  = '/javascripts/page.js')
     :javascript
-      window.app = new EMSApp();
+      $(function(){ window.app = new EMS.App() });
 
     %title Электронная РНС
   %body
     .container.root
       %header
         %h1 Электронная РНС
+        %nav.top-level
       %section
     %footer.container
       %label.grid-switch

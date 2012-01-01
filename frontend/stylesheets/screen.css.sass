@@ -19,6 +19,15 @@ body
 
 header
   +full
+  h1
+    +alpha
+    +columns(3)
+  nav.top-level
+    +omega
+    +columns($total-cols - 3)
+    padding-top: 1.2em
+    a
+      padding-right: 0.5em
 
 footer
   +full
@@ -34,3 +43,5 @@ h1
   font-size: 80%
   input
     vertical-align: middle
+
+
