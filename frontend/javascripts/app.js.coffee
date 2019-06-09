@@ -6,23 +6,33 @@ class EMS.ToplevelResources extends Backbone.Collection
   model: EMS.Resource
   url  : '/resources'
 
-class EMS.NavigationLink extends Backbone.View
-  tagName: 'a'
-
-  render: ->
-    $(@el).text(@model.get('name'))
-    return this
 
 class EMS.ToplevelNavigation extends Backbone.View
   initialize: ->
     @collection.bind('reset', @render, @)
 
   render: ->
-    $(@el).html @collection.map (resource) ->
-      (new EMS.NavigationLink(model: resource)).render().el
+    console.info @collection
+    $(@el).empty()
+    @collection.each (resource) =>
+      $(@el).append(@makeNavigationLink(resource))
 
-    console.info @collection.toJSON(), @el, $(@el)
     return this
+
+  makeNavigationLink: (resource) ->
+    $ '<a>',
+      class: 'navigation'
+      href: resource.get('link')
+      text: resource.get('name')
+      click: (ev) -> ev.preventDefault()
+
+  events:
+    'click a.navigation': 'navigate'
+
+  navigate: (ev) ->
+    console.info(ev)
+    @trigger 'navigate', $(ev.currentTarget).attr('href')
+
 
 class EMS.App
 
@@ -31,8 +41,22 @@ class EMS.App
 
     @toplevelResources = new EMS.ToplevelResources
 
-    new EMS.ToplevelNavigation
+    @navigation = new EMS.ToplevelNavigation
       collection: @toplevelResources
       el: $page.find('nav.top-level')[0]
 
+    @navigation.bind 'navigate', (uri) ->
+      console.info(uri)
+      $.get '/resources' + uri, (resp) ->
+        console.info(resp)
+
     @toplevelResources.fetch()
+
+
+    # appRouter = new Backbone.Router
+    # appRouter.route '*path', 'main', -> console.info(arguments))
+    # Backbone.history.start()
+
+    # $page.on 'click', 'a.navigation', (ev) ->
+    #   ev.preventDefault()
+    #   appRouter.navigate($(this).attr('href'), true)
